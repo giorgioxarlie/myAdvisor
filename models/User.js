@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 const Schema   = mongoose.Schema;
 
 const userSchema = new Schema({
-  username: String,
-  password: String,
-  imgURL: String,
-  description: String,
-  facebookID: String,
-  googleID:String
+    username: String,
+    email: String,
+    password: String,
+    imgURL: String,
+    facebookID: String,
+    googleID:String
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });
@@ -15,3 +15,4 @@ const userSchema = new Schema({
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
+

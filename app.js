@@ -15,9 +15,7 @@ const {dbURL} = require('./config');
 const index = require('./routes/index');
 const users = require('./routes/users');
 const map = require('./routes/map');
-//const auth = require('./routes/auth');
-
-var app = express();
+const auth = require('./routes/auth');
 
 // Promessa per connessione al database
 mongoose.connect(dbURL)
@@ -32,34 +30,71 @@ app.set('view engine', 'ejs');
 app.set('layout', 'layouts/main');
 app.use(expressLayouts);
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+// Middlewares configuration
+app.use(logger("dev"));
+
+
+// View engine configuration
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
+app.use(logger("dev"));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(
+  session({
+    secret: "our-passport-local-strategy-app",
+    resave: true,
+    saveUninitialized: true,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 24 * 60 * 60 // 1 day
+    })
+  })
+);
+passportConfig(app);
+
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  res.locals.title = "Passport Auth 0118";
+  next();
+});
 
 app.use('/', index);
 app.use('/users', users);
 app.use('/map', map);
+app.use("/auth", auth);
+
+// Access POST params with body parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Authentication
+app.use(
+  session({
+    secret: "ironhack trips"
+  })
+);
+app.use(cookieParser());
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+app.use((req, res, next) => {
+  const err = new Error("Not Found");
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.error = req.app.get("env") === "development" ? err : {};
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render("error");
 });
 
 module.exports = app;
