@@ -10,11 +10,11 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const debug = require('debug')('myAdvisor:app');
 const flash = require('connect-flash');
-
 const {dbURL} = require('./config');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
+const map = require('./routes/map');
 //const auth = require('./routes/auth');
 
 var app = express();
@@ -42,6 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/map', map);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

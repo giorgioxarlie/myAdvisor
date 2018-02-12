@@ -7,20 +7,19 @@ var map;
           zoom: 13
         });
           places.forEach(p =>{
-              console.log(p.name)
-            createWindow(p.location.lat,p.location.lng,p.name);
+            createWindow(p.location.lat,p.location.lng,p.name,p.imageURL);
           });
       }
 
-      function createWindow(lat,lng,name){
+      function createWindow(lat,lng,name,icon){
         var infowindow = new google.maps.InfoWindow({
-            content: name
+            content: name,
+            icon:"https://placeholdit.imgix.net/~text?txtsize=50&txt=Ironfunding&w=50&h=50",
         });
-        console.log(position)
         var marker= new google.maps.Marker({
             position: {lat,lng},
             map: map,
-            title: name
+            title: name,
         });
           marker.addListener('click', function () {
             infowindow.open(map, marker);

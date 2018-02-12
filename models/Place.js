@@ -3,7 +3,7 @@ const Schema   = mongoose.Schema;
 
 const placeSchema = new Schema({
     name: String,
-    imageURL: { type: String, default: "https://placeholdit.imgix.net/~text?txtsize=50&txt=Ironfunding&w=650&h=250" },
+    imageURL: { type: String, default: "https://placeholdit.imgix.net/~text?txtsize=50&txt=Ironfunding&w=50&h=50" },
     description: String,
     location: {lng:Number,lat:Number},
     ratings:[]
