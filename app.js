@@ -17,9 +17,6 @@ const auth = require("./routes/auth");
 // Mongoose configuration
 mongoose.connect("mongodb://localhost/myadvisorDB");
 
-// Middlewares configuration
-app.use(logger("dev"));
-
 // View engine configuration
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
