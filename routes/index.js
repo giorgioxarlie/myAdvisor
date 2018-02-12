@@ -17,8 +17,8 @@ router.get('/onlyme', onlyMe, function(req, res, next) {
   res.render('private');
 });
 
-router.get('/place',(req,res)=>{
-  res.render('place',{places});
+router.get('/map',(req,res)=>{
+  res.render('map',{places});
 })
 
 module.exports = router;
