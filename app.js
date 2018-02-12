@@ -1,21 +1,40 @@
-const express = require("express");
-const session = require("express-session");
-const expressLayouts = require("express-ejs-layouts");
-const path = require("path");
-const logger = require("morgan");
-const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-const app = express();
-const MongoStore = require("connect-mongo")(session);
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const expressLayouts = require('express-ejs-layouts');
+const mongoose = require('mongoose');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const passportConfig = require("./passport");
+const debug = require('debug')('myAdvisor:app');
+const flash = require('connect-flash');
+const {dbURL} = require('./config');
 
-// Controllers
-const index = require("./routes/index");
-const auth = require("./routes/auth");
+const index = require('./routes/index');
+const map = require('./routes/map');
+const auth = require('./routes/auth');
 
-// Mongoose configuration
-mongoose.connect("mongodb://localhost/myadvisorDB");
+const app = express();
+
+// Promessa per connessione al database
+mongoose.connect(dbURL)
+.then(()=> {
+  debug(`Connected to db ${dbURL}`)
+})
+.catch(e => console.log(e)) 
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.set('layout', 'layouts/main');
+app.use(expressLayouts);
+
+// Middlewares configuration
+app.use(logger("dev"));
+
 
 // View engine configuration
 app.set("views", path.join(__dirname, "views"));
@@ -45,7 +64,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/", index);
+app.use('/', index);
+app.use('/map', map);
 app.use("/auth", auth);
 
 // Access POST params with body parser
@@ -59,9 +79,6 @@ app.use(
   })
 );
 app.use(cookieParser());
-
-// Routes
-// app.use("/", index);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

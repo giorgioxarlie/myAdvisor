@@ -1,4 +1,4 @@
-//file de config de ruta de la bbdd
+require('dotenv').config();
 module.exports = {
-    dbUrl: 'mongodb://localhost/myadvisorDB'
+    dbURL: process.env.MONGO_URL
 }

@@ -16,4 +16,8 @@ router.get('/onlyme', onlyMe, function(req, res, next) {
   res.render('private');
 });
 
+router.get('/place',(req,res)=>{
+  res.render('place',{places});
+})
+
 module.exports = router;
