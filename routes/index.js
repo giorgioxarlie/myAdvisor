@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const isLoggedIn = require('../middlewares/isLoggedIn');
 const onlyMe = require('../middlewares/onlyMe');
+const places = require('../bin/seeds');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -16,8 +17,8 @@ router.get('/onlyme', onlyMe, function(req, res, next) {
   res.render('private');
 });
 
-router.get('/place',(req,res)=>{
-  res.render('place',{places});
+router.get('/map',(req,res)=>{
+  res.render('map',{places});
 })
 
 module.exports = router;
