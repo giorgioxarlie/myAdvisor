@@ -2,10 +2,25 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome hello <%= title %></p>
+    <p>Welcome to <%= title %></p>
+    <% if(!user) { %>
+      <ul>
+        <li><a href="/auth/login">Login</a></li>
+        <li><a href="/auth/signup">Signup</a></li>
+        <li><a href="/auth/facebook">Login con facebook</a></li>
+        <li><a href="/auth/google">Login con google</a></li>
+      </ul>
+    <% } else { %>
+      <h2>Hola <%= user.username %></h2>
+      <img src="/images/descarga.jpeg" alt=""/>
+    </br>
+      <a href="/private">Ver a los simpson</a>
+      <a href="/onlyme?id=<%= user._id %>">Onlyme</a>
+      <a href="/auth/logout">Logout</a>
+    <% } %>
   </body>
+  
 </html>
