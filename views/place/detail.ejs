@@ -14,6 +14,13 @@
 <% } %>
 
 </br>
-
-
+<form action="/edit/<%=place._id%>" method="post">
+    <label>Comment</label>
+    <input type="text" id="comment" name="comment" >
+  
+    <button type="submit">Comment</button>
+</form>
+<% comment.forEach((c)=>{ %>
+    <p><%= c %></p>
+<% })%>
 <a href="/">GO HOME</a>

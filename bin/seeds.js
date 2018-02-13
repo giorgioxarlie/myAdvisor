@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Place = require('../models/Place');
-//mongoose.connect
+const {dbURL} = require('../config');
+mongoose.connect(dbURL).then(() => console.log("Conectado!"));
 
 const places = [
     {
