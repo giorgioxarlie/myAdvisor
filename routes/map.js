@@ -11,10 +11,9 @@ router.get('/map',(req,res)=>{
 router.post('/map',(req,res,next)=>{
     const {name, lat, lng } = req.body;
 
-    const newPos = new Pos({
+    const newPos = new Places({
         name,
-        lng,
-        lat
+        location:{lng,lat},
       });
 
       newPos.save()
