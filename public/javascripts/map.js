@@ -35,7 +35,7 @@ var map;
         // Center map with user location
         // map.setCenter(loc);
         // Add a marker for your user location
-        createWindow(lat,lng,name);
+        //createWindow(lat,lng,name);
     });
 
 
