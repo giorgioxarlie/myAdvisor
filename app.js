@@ -16,6 +16,8 @@ const {dbURL} = require('./config');
 const index = require('./routes/index');
 const map = require('./routes/map');
 const auth = require('./routes/auth');
+const place = require('./routes/place');
+const review = require('./routes/review');
 
 const app = express();
 
@@ -65,8 +67,10 @@ app.use((req, res, next) => {
 });
 
 app.use('/', index);
-app.use('/map', map);
-app.use("/auth", auth);
+app.use('/', map);
+app.use('/', place);
+app.use('/auth', auth);
+app.use('/',review);
 
 // Access POST params with body parser
 app.use(bodyParser.json());

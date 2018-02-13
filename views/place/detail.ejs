@@ -1,0 +1,19 @@
+<h1><%= place.name %></h1>
+<img src="<%= place.imageURL%>">
+<p><%= place.description %></p>
+<h1> THIS PLACE HAS <%= stars %>  STARS</h1>
+
+
+<% for(let i = 0; i<=5; i++) {%>
+        <a href="/add-star/<%= place._id %>/<%= i %>">
+            <% for(let j = 0; j<i; j++) {%>
+                <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/star-icon.png" alt="" width="20"/>
+            <% } %>
+        </a>
+        </br>
+<% } %>
+
+</br>
+
+
+<a href="/">GO HOME</a>

@@ -1,9 +1,11 @@
-var express = require('express');
-var router = express.Router();
-const places = require('../bin/seeds');
+const express = require('express');
+const router = express.Router();
+const Places = require('../models/Place');
 
-router.get('/place',(req,res)=>{
-  res.render('map/place',{places});
+router.get('/map',(req,res)=>{
+  Places.find().exec((err, places) => {
+    res.render('map', {places});
+  });
 })
 
 router.post('/map',(req,res,next)=>{

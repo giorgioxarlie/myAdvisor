@@ -2,13 +2,8 @@ const mongoose = require("mongoose");
 const Schema   = mongoose.Schema;
 
 const reviewSchema = new Schema({
-    header: String,
-    comment: String,
-    imageURL:[String],
-    ratings:{
-        firstProperty: Number,
-        secondProperty: Number,
-    }
+    place : Schema.Types.ObjectId,
+    stars: Number
   }, {
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
   });
