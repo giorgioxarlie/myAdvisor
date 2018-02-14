@@ -17,6 +17,9 @@ const index = require('./routes/index');
 const map = require('./routes/map');
 const auth = require('./routes/auth');
 const profile = require("./routes/profile");
+const place = require('./routes/place');
+const review = require('./routes/review');
+const comment = require('./routes/comment');
 
 const app = express();
 
@@ -58,9 +61,24 @@ app.use((req, res, next) => {
 });
 
 app.use('/', index);
-app.use('/map', map);
 app.use("/auth", auth);
 app.use("/profile", profile);
+app.use('/', map);
+app.use('/', place);
+app.use('/',review);
+app.use('/', comment);
+
+// Access POST params with body parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Authentication
+app.use(
+  session({
+    secret: "ironhack trips"
+  })
+);
+app.use(cookieParser());
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

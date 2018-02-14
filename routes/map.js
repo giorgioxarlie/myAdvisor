@@ -1,18 +1,22 @@
-var express = require('express');
-var router = express.Router();
-const places = require('../bin/seeds');
+const express = require('express');
+const router = express.Router();
+const Places = require('../models/Place');
+const multer = require('multer');
+const upload = multer({dest:'./public/uploads/'});
 
-router.get('/place',(req,res)=>{
-  res.render('map/place',{places});
+router.get('/map',(req,res)=>{
+  Places.find().exec((err, places) => {
+    res.render('map', {places});
+  });
 })
 
-router.post('/map',(req,res,next)=>{
-    const {name, lat, lng } = req.body;
+router.post('/map',upload.single('image'),(req,res,next)=>{
+    const {name, lat, lng} = req.body;
 
-    const newPos = new Pos({
+    const newPos = new Places({
         name,
-        lng,
-        lat
+        location:{lng,lat},
+        imageURL:`../uploads/${req.file.filename}`,
       });
 
       newPos.save()

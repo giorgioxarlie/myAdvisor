@@ -1,12 +1,15 @@
-<form method="POST" id="form" action="/place">
-  Location Name
-  <input type="text" name="name"> lat:
-  <input type="text" name="lat"> lng:
-  <input type="text" name="lng">
-  <button>Submit</button>
-</form>
-<div id="map"></div>
-<script>let places = <% - JSON.stringify(places) %></script>
-<script src="./javascripts/map.js" type="text/javascript"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg0-lS7raiSJRsH8HQzJOCN9BDb_Po2XE&callback=initMap">
-</script>
+<form method="POST" id="form" action="/map" enctype="multipart/form-data">
+      Location Name  <input type="text" name="name">
+      lat:  <input type="text" name="lat">
+      lng:  <input type="text" name="lng">
+      Foto: <input type="file" name="image">
+      <button>Submit</button><a href="/">Home</a>
+    </form>
+    <div id="map"></div>
+      <script>let places = <%-JSON.stringify(places)%></script>
+        <script src="./javascripts/map.js" type="text/javascript"></script>
+          <script
+          async 
+          defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg0-lS7raiSJRsH8HQzJOCN9BDb_Po2XE&callback=initMap">
+        </script>
