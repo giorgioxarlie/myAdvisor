@@ -5,8 +5,10 @@ const multer = require('multer');
 const upload = multer({dest:'./public/uploads/'});
 
 router.get('/map',(req,res)=>{
+  console.log("ENTRA")
   Places.find().exec((err, places) => {
-    res.render('map', {places});
+    console.log(places)
+    res.render('map', {places : places});
   });
 })
 
