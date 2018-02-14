@@ -8,9 +8,6 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-router.get('/map',(req,res)=>{
-  res.render('map',{places});
-})
 router.get('/private', isLoggedIn, function(req, res, next) {
   res.render('private');
 });
