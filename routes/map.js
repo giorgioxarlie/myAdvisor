@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Places = require('../models/Place');
+const multer = require('multer');
+const upload = multer({dest:'./public/uploads/'});
 
 router.get('/map',(req,res)=>{
   Places.find().exec((err, places) => {
@@ -8,12 +10,13 @@ router.get('/map',(req,res)=>{
   });
 })
 
-router.post('/map',(req,res,next)=>{
-    const {name, lat, lng } = req.body;
+router.post('/map',upload.single('image'),(req,res,next)=>{
+    const {name, lat, lng} = req.body;
 
     const newPos = new Places({
         name,
         location:{lng,lat},
+        imageURL:`../uploads/${req.file.filename}`,
       });
 
       newPos.save()

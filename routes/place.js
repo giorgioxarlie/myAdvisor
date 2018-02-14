@@ -19,11 +19,19 @@ router.get('/detail/:id', (req,res) => {
       Review.find({place:placeId}, (err,reviews)=>{
         let num_stars = (reviews.reduce((acc,e)=> acc+e.stars,0)/reviews.length).toFixed(2);
           Comments.find({place:placeId}, (err,comment)=>{
-            console.log(comment);
             res.render('place/detail', {place:place, stars:num_stars,comment});
           })
       })
     });
   })
+
+  router.get('/delete/:id', (req, res) => {
+    const id = req.params.id;
+  
+    Places.findByIdAndRemove(id, (err, place) => {
+      if (err){ return next(err); }
+      return res.redirect('/index');
+    });
+  });
 
 module.exports = router;

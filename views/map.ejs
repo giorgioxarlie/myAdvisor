@@ -1,7 +1,8 @@
-<form method="POST" id="form" action="/map">
+<form method="POST" id="form" action="/map" enctype="multipart/form-data">
       Location Name  <input type="text" name="name">
       lat:  <input type="text" name="lat">
       lng:  <input type="text" name="lng">
+      Foto: <input type="file" name="image">
       <button>Submit</button><a href="/">Home</a>
     </form>
     <div id="map"></div>

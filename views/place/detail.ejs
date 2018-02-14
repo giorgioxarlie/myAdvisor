@@ -20,7 +20,8 @@
   
     <button type="submit">Comment</button>
 </form>
-<% comment.forEach((c)=>{ %>
+<% comment.reverse().forEach((c)=>{ %>
     <p><%= c.comment %></p>
+    <a>Rispondi</a>
 <% })%>
 <a href="/">GO HOME</a>

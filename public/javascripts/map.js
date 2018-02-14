@@ -1,20 +1,20 @@
 var map;
 
       function initMap() {
-        position = {lat:40.407304, lng:-3.694664};
+        position = {lat:40.392379299999995, lng:-3.6984572};
         map = new google.maps.Map(document.getElementById('map'), {
           center: position,
-          zoom: 13
+          zoom: 14
         });
           places.forEach(p =>{
               console.log(p)
-            createWindow(p.location.lat,p.location.lng,p.name,p.imageURL);
+            createWindow(p.location.lat,p.location.lng,p.name,p.imageURL,p._id);
           });
       }
 
-      function createWindow(lat,lng,name,imageURL){
+      function createWindow(lat,lng,name,imageURL,id){
         var infowindow = new google.maps.InfoWindow({
-            content: `${name}<br><img src='${imageURL}'>`,
+            content: `${name}<br><img src='${imageURL}'><br><a href="detail/${id}">${name}</a>`,
         });
         var marker= new google.maps.Marker({
             position: {lat,lng},
