@@ -10,11 +10,12 @@ authRoutes.get("/signup", (req, res, next) => {
 });
 
 authRoutes.post("/signup", (req, res, next) => {
-  const username = req.body.username;
-  const password = req.body.password;
+  const {username} = req.body;
+  const {password} = req.body;
+  const {email} = req.body;
 
-  if (username === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+  if (username === "" || password === "" || email === "") {
+    res.render("auth/signup", { message: "Indicate username, email and password" });
     return;
   }
 
@@ -23,12 +24,13 @@ authRoutes.post("/signup", (req, res, next) => {
       res.render("auth/signup", { message: "The username already exists" });
       return;
     }
-
+  
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
 
     const newUser = new User({
       username,
+      email,
       password: hashPass
     });
 
@@ -48,7 +50,7 @@ authRoutes.get("/login", (req, res, next) => {
 });
 
 authRoutes.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
+  successRedirect: "/profile",
   failureRedirect: "/auth/login"
 }));
 
@@ -60,7 +62,7 @@ authRoutes.get("/logout", (req, res) => {
 
 authRoutes.get("/facebook", passport.authenticate("facebook"));
 authRoutes.get("/facebook/callback", passport.authenticate("facebook", {
-  successRedirect: "/",
+  successRedirect: "/profile",
   failureRedirect: "/"
 }));
 

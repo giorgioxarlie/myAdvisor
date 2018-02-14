@@ -16,6 +16,7 @@ const {dbURL} = require('./config');
 const index = require('./routes/index');
 const map = require('./routes/map');
 const auth = require('./routes/auth');
+const profile = require("./routes/profile");
 
 const app = express();
 
@@ -31,14 +32,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.set('layout', 'layouts/main');
 app.use(expressLayouts);
-
-// Middlewares configuration
-app.use(logger("dev"));
-
-
-// View engine configuration
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
 
 app.use(logger("dev"));
 app.use(express.static(path.join(__dirname, "public")));
@@ -60,25 +53,14 @@ passportConfig(app);
 
 app.use((req, res, next) => {
   res.locals.user = req.user;
-  res.locals.title = "Passport Auth 0118";
+  res.locals.title = "MyAdvisor";
   next();
 });
 
 app.use('/', index);
 app.use('/map', map);
 app.use("/auth", auth);
-
-// Access POST params with body parser
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-// Authentication
-app.use(
-  session({
-    secret: "ironhack trips"
-  })
-);
-app.use(cookieParser());
+app.use("/profile", profile);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

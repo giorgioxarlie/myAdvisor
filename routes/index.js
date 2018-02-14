@@ -9,14 +9,6 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-router.get('/private', isLoggedIn, function(req, res, next) {
-  res.render('private');
-});
-
-router.get('/onlyme', onlyMe, function(req, res, next) {
-  res.render('private');
-});
-
 router.get('/map',(req,res)=>{
   res.render('map',{places});
 })

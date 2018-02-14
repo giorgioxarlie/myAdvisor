@@ -6,21 +6,13 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-    <% if(!user) { %>
       <ul>
         <li><a href="/auth/login">Login</a></li>
         <li><a href="/auth/signup">Signup</a></li>
         <li><a href="/auth/facebook">Login con facebook</a></li>
         <li><a href="/auth/google">Login con google</a></li>
       </ul>
-    <% } else { %>
-      <h2>Hola <%= user.username %></h2>
-      <img src="/images/descarga.jpeg" alt=""/>
-    </br>
-      <a href="/map">Map</a>
-      <a href="/profile?id=<%= user._id %>">Onlyme</a>
-      <a href="/auth/logout">Logout</a>
-    <% } %>
   </body>
   
 </html>
+

@@ -2,22 +2,26 @@
     <div class="error-message"><%= errorMessage %></div>
 <% } %>
 
-<form id="form" action="/auth/signup" method="POST">
-    <label for="username">Username</label>
-    <br>
-    <input type="text" name="username" placeholder="AnakinSkywalker">
-    <br>
-    <label for="email">Email </label>
-    <br>
-    <input type="text" name="email" placeholder="Email goes here">
-    <br>
-    <br>
-    <label for="password">Password</label>
-    <br>
-    <input type="password" name="password" placeholder="DeathStar">
-    <br>
-    <br>
-    <button>Create account</button>
-</form>
-
-<a href="/">Back home</a>
+<!-- views/authentication/signup.ejs -->
+<div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 centered-form">
+        <form action="/auth/signup" method="post">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="email" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-success">Create Account</button>
+        </form>
+      </div>
+      <a href="/">Back home</a>
+    </div>
+  </div>
