@@ -1,24 +1,41 @@
 <form action="/comment/<%=place%>" method="post">
+    <div style="float:right">
+    <img src="<%= place.imageURL%>">
+    </div>
+    <div style="width: 250px">
     <label>Proprieta1</label>
-    <input type="number" id="poprieta" name="proprieta" value="0">
+    <p class="range-field">
+      <input type="range" id="poprieta" name="proprieta" min="0" max="5" value="1"/>
+    </p>
     <br>
     <label>Proprieta2</label>
-    <input type="number" id="poprieta1" name="proprieta1" value="0">
+    <p class="range-field">
+      <input type="range" id="poprieta1" name="proprieta1" min="0" max="5" />
+    </p>
     <br>
     <label>Proprieta3</label>
-    <input type="number" id="poprieta2" name="proprieta2" value="0">
-    <br>
+    <p class="range-field">
+      <input type="range" id="poprieta2" name="proprieta2" min="0" max="5" />
+    </p>    <br>
     <label>Proprieta4</label>
-    <input type="number" id="poprieta3" name="proprieta3" value="0">
-    <br>
+    <p class="range-field">
+      <input type="range" id="poprieta3" name="proprieta3" min="0" max="5" />
+    </p>    <br>
     <label>Proprieta5</label>
-    <input type="number" id="poprieta4" name="proprieta4" value="0">
-    <br>
+    <p class="range-field">
+      <input type="range" id="poprieta4" name="proprieta4" min="0" max="5" />
+    </p>    <br>
     <label>Proprieta6</label>
-    <input type="number" id="poprieta5" name="proprieta5" value="0">
+    <p class="range-field">
+      <input type="range" id="poprieta5" name="proprieta5" min="0" max="5" />
+    </p>
+    </div>
     <br>
-    <label>Comment</label>
-    <input type="text" id="comment" name="comment" >
-  
+     <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea1" name="comment" class="materialize-textarea" data-length="120"></textarea>
+            <label for="textarea1">Comment</label>
+          </div>
+    </div>
     <button type="submit">Comment</button>
 </form>

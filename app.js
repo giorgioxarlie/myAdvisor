@@ -18,7 +18,6 @@ const map = require('./routes/map');
 const auth = require('./routes/auth');
 const profile = require("./routes/profile");
 const place = require('./routes/place');
-const review = require('./routes/review');
 const comment = require('./routes/comment');
 
 const app = express();
@@ -65,7 +64,6 @@ app.use("/auth", auth);
 app.use("/profile", profile);
 app.use('/', map);
 app.use('/', place);
-app.use('/',review);
 app.use('/', comment);
 
 // Access POST params with body parser

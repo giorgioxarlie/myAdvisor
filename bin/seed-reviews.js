@@ -5,32 +5,40 @@ mongoose.connect(dbURL).then(() => console.log("Conectado!"));
 
 const reviews = [
     {
-        place : Ironhack,
+        place :'5a85c2cdf890329b228ebf7e',
         owner: "5a8487b48bb51caeca99f74a",
-        propx: 3,
-        propy: 4,
-        avgrev: 3,
+        prop1: 3,
+        prop2: 4,
+        prop3: 3,
+        prop2: 4,
+        prop4: 3,
+        prop5: 4,
+        prop6: 4,
         comment: "Muy BUEN baño."
     },
     {
-        place : Ironhack,
-        owner: Xarlie,
-        propx: 2,
-        propy: 1,
-        avgrev: 1,
+        place : '5a85c2cdf890329b228ebf7e',
+        owner: '5a8487b48bb51caeca99f74a',
+        prop1: 3,
+        prop2: 4,
+        prop3: 3,
+        prop2: 4,
+        prop4: 3,
+        prop5: 4,
+        prop6: 4,
         comment: "Muy MAL baño."
         }]
 
 Review.collection.drop();
 
 reviews.forEach(p =>{
-    let pr = new Review(r);
+    let pr = new Review(p);
     pr.save((err,rvw)=>{
         if(err){
             throw err;
         }
-        console.log(`Sitio guardado ${rvw.name}`);
+        console.log(`Commento guardado ${rvw.place}`);
     })
 })
 
-module.exports = places;
+module.exports = reviews;

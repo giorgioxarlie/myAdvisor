@@ -47,15 +47,15 @@ router.get("/delete/:id", (req, res) => {
 
 router.get("/review/:id", (req, res) => {
   const placeId = req.params.id;
-  Places.findById({ placeId }, (err, comment) => {
-    res.render("place/review", { place: placeId });
+  Places.findById(placeId , (err, place) => {
+    console.log(place)
+    res.render("place/review", { place });
   });
 });
 
   router.post("/comment/:id", (req, res, next) => {
     var rev;
     const userId = req.user._id;
-    //let userId = req.params.id;
     let placeId = req.params.id;
     let comment = req.body.comment;
     let prop1 = req.body.proprieta;
@@ -90,7 +90,7 @@ router.get("/review/:id", (req, res) => {
           { $push: { reviews: rev._id } },
           { new: true }
         ).then(PlaceUpdate => {
-          res.redirect(`/profile/${userId}/myreviews/${rev._id}`);
+          res.redirect(`/detail/${placeId}`);
         });
       });
     });

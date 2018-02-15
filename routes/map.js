@@ -13,11 +13,12 @@ router.get('/map',(req,res)=>{
 })
 
 router.post('/map',upload.single('image'),(req,res,next)=>{
-    const {name, lat, lng} = req.body;
+    const {name, lat, lng, description} = req.body;
 
     const newPos = new Places({
         name,
         location:{lng,lat},
+        description,
         imageURL:`../uploads/${req.file.filename}`,
       });
 

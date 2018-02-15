@@ -1,11 +1,44 @@
 <h1><%= place.name %></h1>
 <img src="<%= place.imageURL%>">
 <p><%= place.description %></p>
-<h1> THIS PLACE HAS <%= stars %>  STARS</h1>
+<h1> Place avarage: <%= stars %> </h1>
 
 </br>
+
 <% comment.reverse().forEach((c)=>{ %>
-    <p><%= c.comment %></p>
-    <a>Rispondi</a>
+<div style="border:1px solid #000; margin:5px">
+        <div style="align:left">
+            <p><%= c.comment %></p>
+        <br>
+            <a href="/profile?id=<%= c.owner %>">Raters Profile</a>
+        </div>
+        <div style="align:right">
+            <p class="range-field">
+            <input type="range" id="poprieta" name="proprieta" min="0" max="5" value="<%=c.prop%>"/>
+            </p>
+            <br>
+            <label>Proprieta2</label>
+            <p class="range-field">
+            <input type="range" id="poprieta1" name="proprieta1" min="0" max="<%=c.prop1%>" />
+            </p>
+            <br>
+            <label>Proprieta3</label>
+            <p class="range-field">
+            <input type="range" id="poprieta2" name="proprieta2" min="0" max="<%=c.prop2%>" />
+            </p>    <br>
+            <label>Proprieta4</label>
+            <p class="range-field">
+            <input type="range" id="poprieta3" name="proprieta3" min="0" max="<%=c.prop3%>" />
+            </p>    <br>
+            <label>Proprieta5</label>
+            <p class="range-field">
+            <input type="range" id="poprieta4" name="proprieta4" min="0" max="<%=c.prop4%>" />
+            </p>    <br>
+            <label>Proprieta6</label>
+            <p class="range-field">
+            <input type="range" id="poprieta5" name="proprieta5" min="0" max="<%=c.prop5%>" />
+            </p>
+    </div>
+</div>
 <% })%>
 <a href="/">GO HOME</a>
