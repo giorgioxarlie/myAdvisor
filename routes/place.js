@@ -1,45 +1,56 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const Places = require('../models/Place');
-const Review = require('../models/Review');
-const Comments = require('../models/Comment');
+const Places = require("../models/Place");
+const Review = require("../models/Review");
+const User = require("../models/User");
+const Comments = require("../models/Comment");
 
-router.get('/index',(req,res)=>{
-    Places.find().exec((err, places) => {
-        res.render('place/index', {places});
-      });
-    
-})
+router.get("/index", (req, res) => {
+  Places.find().exec((err, places) => {
+    res.render("place/index", { places });
+  });
+});
 
-router.get('/detail/:id', (req,res) => {
-    const placeId = req.params.id;
-  
-    Places.findById(placeId, (err, place) => {
-      if (err) { return next(err); }
-      Review.find({place:placeId}, (err,reviews)=>{
-        let num_stars = (reviews.reduce((acc,e)=> acc+e.prop1+e.prop2+e.prop3+e.prop4+e.prop5+e.prop6,0)/reviews.length/6).toFixed(2);
-        let comment =  reviews;
-            res.render('place/detail', {place:place, stars:num_stars,comment});
-      })
-    });
-  })
+router.get("/detail/:id", (req, res) => {
+  const placeId = req.params.id;
 
-  router.get('/delete/:id', (req, res) => {
-    const id = req.params.id;
-  
-    Places.findByIdAndRemove(id, (err, place) => {
-      if (err){ return next(err); }
-      return res.redirect('/index');
+  Places.findById(placeId, (err, place) => {
+    if (err) {
+      return next(err);
+    }
+    Review.find({ place: placeId }, (err, reviews) => {
+      let num_stars = (
+        reviews.reduce(
+          (acc, e) =>
+            acc + e.prop1 + e.prop2 + e.prop3 + e.prop4 + e.prop5 + e.prop6,
+          0
+        ) /
+        reviews.length /
+        6
+      ).toFixed(2);
+      let comment = reviews;
+      res.render("place/detail", { place: place, stars: num_stars, comment });
     });
   });
+});
 
-  router.get('/review/:id',(req,res)=>{
-    const placeId = req.params.id;
-    Places.findById({placeId}, (err,comment)=>{
-      res.render('place/review', { place:placeId });
-    })   
-  })
+router.get("/delete/:id", (req, res) => {
+  const id = req.params.id;
 
+  Places.findByIdAndRemove(id, (err, place) => {
+    if (err) {
+      return next(err);
+    }
+    return res.redirect("/index");
+  });
+});
+
+router.get("/review/:id", (req, res) => {
+  const placeId = req.params.id;
+  Places.findById({ placeId }, (err, comment) => {
+    res.render("place/review", { place: placeId });
+  });
+});
 
   router.post("/comment/:id", (req, res, next) => {
     var rev;
