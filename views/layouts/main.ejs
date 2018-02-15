@@ -1,41 +1,164 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/css/materialize.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/css/materialize.min.css">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/js/materialize.min.js"></script>
+  <script src="/vendor/jquery/jquery.min.js" charset="utf-8"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8" />
+</head>
+
+<body>
   <% if(user) { %>
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="/" class="brand-logo teal-text">
+          <img style="width:50px; margin-top:7px;" src="/https://static.tacdn.com/img2/branding/rebrand/TA_logo_primary.png" alt="myAdvisor">
+        </a>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <a class="waves-effect waves-light btn" href="/auth/logout">Log Out</a>
+          </li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <a class="waves-effect waves-light btn" href="/profile">My Profile</a>
+          </li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <a class="waves-effect waves-light btn" href="/index">Home</a>
+          </li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <a class="waves-effect waves-light btn" href="/map">Map</a>
+          </li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul id="nav-mobile" class="side-nav">
+          <li>
+            <a href="/campaign">Campañas
+              <i class="material-icons">event_available</i>
+            </a>
+          </li>
+          <li>
+            <a href="/">Inicio
+              <i class="material-icons">home</i>
+            </a>
+          </li>
+          <li>
+            <a href="/user/profile">Perfil
+              <i class="material-icons">person</i>
+            </a>
+          </li>
+          <li>
+            <a class="waves-effect waves-light btn" href="/auth/logout">Salir</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <% } else { %>
       <nav class="white" role="navigation">
         <div class="nav-wrapper container">
-          <a id="logo-container" href="/" class="brand-logo teal-text"><img style="width:75px; margin-top:7px;" src="/images/logo.png" alt="myAdvisor"></a>
+          <a id="logo-container" href="/" class="brand-logo teal-text">WAIT 4 ME</a>
           <ul class="right hide-on-med-and-down">
-            <li><a class="waves-effect waves-light btn" href="/auth/logout">Salir</a></li>
+            <li>
+              <a class="waves-effect waves-light btn" href="/auth/signup">Sign Up</a>
+            </li>
           </ul>
           <ul class="right hide-on-med-and-down">
-            <li><a href="/user/profile">Mi perfil</a></li>
+            <li>
+              <a href="/auth/login">Log in</a>
+            </li>
           </ul>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="/">Inicio</a></li>
-          </ul>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="/campaign">Ver Campañas</a></li>
-          </ul>
-          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="side-nav">
-            <li><a href="/campaign">Campañas<i class="material-icons">event_available</i></a></li>
-            <li><a href="/">Inicio<i class="material-icons">home</i></a></li>
-            <li><a href="/user/profile">Perfil<i class="material-icons">person</i></a></li>
-            <li><a class="waves-effect waves-light btn" href="/auth/logout">Salir</a></li>
+            <li>
+              <a href="/auth/login">Log in</a>
+            </li>
+            <li>
+              <a class="waves-effect waves-light btn" href="/auth/signup">Sign Up</a>
+            </li>
           </ul>
+          <a href="#" data-activates="nav-mobile" class="button-collapse">
+            <i class="material-icons">menu</i>
+          </a>
         </div>
       </nav>
-  <% } else { %>
-      <nav class="white" role="navigation">
-        <p>fuori</p>
-      </nav>
-<% } %>
-  <%- body -%>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/js/materialize.min.js"></script>
-  <script src="javascript/materialize.js"></script>
+      <% } %>
+        <%- body -%>
+</body>
+<footer class="page-footer teal">
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <span class="footer-logo">
+          <img style="width:150px; margin-top:7px;" src="https://static.tacdn.com/img2/branding/rebrand/TA_logo_primary.png"
+            alt="myAdvisor">
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s4">
+        <span class="footer-caption"></span>
+      </div>
+      <div class="col s3">
+        <span class="footer-caption">Useful Links</span>
+        <ul>
+          <li>
+            <a class="dev-profile" href="https://www.linkedin.com/in/giorgiograssini/">About</a>
+          </li>
+          <br>
+          <li>
+            <a class="dev-profile" href="https://www.linkedin.com/in/carlos-lorente/">Jobs</a>
+          </li>
+          <br>
+          <li>
+            <a class="dev-profile" href="https://www.linkedin.com/in/carlos-lorente/">Privacy</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col s3">
+        <span class="footer-caption">Proudly developed by</span>
+        <ul>
+          <li>
+            <a class="dev-profile" href="https://www.linkedin.com/in/giorgiograssini/">Giorgio</a>
+          </li>
+          <br>
+          <li>
+            <a class="dev-profile" href="https://www.linkedin.com/in/carlos-lorente/">Charlie</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col s2">
+        <span class="footer-caption"></span>
+      </div>
+      <a class="social" href="https://www.linkedin.com/in/giorgiograssini/">
+        <img style="width:30px; margin-top:7px;" src="https://cdn0.iconfinder.com/data/icons/free-social-media-15/32/instagram_social_media-256.png"
+          alt="Instagram">
+      </a>
+      <a class="social" href="https://www.linkedin.com/in/giorgiograssini/">
+        <img style="width:30px; margin-top:7px;" src="https://cdn0.iconfinder.com/data/icons/free-social-media-15/32/twitter_social_media-256.png"
+          alt="Twitter">
+      </a>
+      <a class="social" href="https://www.linkedin.com/in/giorgiograssini/">
+        <img style="width:30px; margin-top:7px;" src="https://cdn0.iconfinder.com/data/icons/free-social-media-15/32/github_social_media-256.png"
+          alt="Twitter">
+      </a>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="lower-bar"> <a class="copyright">© 2018 MyAdvisor</a>
+        </div>
+      </div>
+    </div>
+</footer>
+
 </html>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="javascript/materialize.js"></script>
+<script src="javascript/init.js"></script>
