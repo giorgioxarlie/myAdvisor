@@ -53,47 +53,22 @@ router.get("/review/:id", (req, res) => {
   });
 });
 
-  router.post("/comment/:id", (req, res, next) => {
-    var rev;
-    const userId = req.user._id;
-    let placeId = req.params.id;
-    let comment = req.body.comment;
-    let prop1 = req.body.proprieta;
-    let prop2 = req.body.proprieta1;
-    let prop3 = req.body.proprieta2;
-    let prop4 = req.body.proprieta3;
-    let prop5 = req.body.proprieta4;
-    let prop6 = req.body.proprieta5;
-    let c = new Review({
-      place: placeId,
-      owner: userId,
-      comment: comment,
-      prop1,
-      prop2,
-      prop3,
-      prop4,
-      prop5,
-      prop6
-    });
-    c.save((err, newrev) => {
-      if (err) {
-        return next(err);
-      }
-      rev = newrev;
-      User.findByIdAndUpdate(
-        { _id: userId },
-        { $push: { myreviews: newrev._id } },
-        { new: true }
-      ).then(myreviewsUpdated => {
-        Places.findByIdAndUpdate(
-          { _id: placeId },
-          { $push: { reviews: rev._id } },
-          { new: true }
-        ).then(PlaceUpdate => {
-          res.redirect(`/detail/${placeId}`);
-        });
-      });
-    });
-  });
+router.post('/comment/:id',(req, res,next)=>{
+  let userId = req.user.id;
+  let placeId = req.params.id;
+  let comment = req.body.comment;
+  let prop1 = req.body.proprieta;
+  let prop2 = req.body.proprieta1;
+  let prop3 = req.body.proprieta2;
+  let prop4 = req.body.proprieta3;
+  let prop5 = req.body.proprieta4;
+  let prop6 = req.body.proprieta5;
+  let c = new Review({place:placeId, owner:userId,comment: comment,prop1,prop2,prop3,prop4,prop5,prop6});
+  c.save(err=>{
+      if(err){return next(err)};
+      console.log(`Added ${comment} and ${prop1} to ${placeId}`);
+      res.redirect(`/detail/${placeId}`);
+  })
+})
 
 module.exports = router;
