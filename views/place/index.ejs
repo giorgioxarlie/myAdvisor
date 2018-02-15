@@ -1,11 +1,12 @@
 <ul>
     <% places.forEach((place) => { %>
         <li>
+        <img src="<%= place.imageURL%>" width="50">
         <%= place.name %>
-        <img src="<%= place.imageUrl %>" width=100/>
         <a href="/detail/<%= place._id %>">View Details</a>
         <a href="/detail/<%= place._id %>/edit">Edit Place</a>
         <a href="/delete/<%= place._id %>">Delete Place</a>
+        <a href="/review/<%= place._id %>">Make a review</a>
         </li>
     <%  }) %>
 </ul>

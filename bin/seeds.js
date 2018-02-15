@@ -12,7 +12,8 @@ const places = [
         ratings:[{
             firstProperty:3,
             secondProperty:4,
-        }]
+        }],
+        imageURL:"../uploads/f0e4152b0a079b70a224a9590b2b48f0"
     },
     {
         name: 'Casa del lettore',
@@ -22,7 +23,8 @@ const places = [
         ratings:[{
             firstProperty:3,
             secondProperty:4,
-        }]
+        }],
+        imageURL:"../uploads/f0e4152b0a079b70a224a9590b2b48f0"
     }
 ]
 
