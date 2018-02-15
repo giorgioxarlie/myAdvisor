@@ -137,7 +137,6 @@ html, body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   text-transform: none;
   text-align: center;
-  border-color: 
 }
 
 .material-icons{
@@ -221,3 +220,12 @@ html, body {
 .no-margin{
   margin-left:8%;
 }
+
+.titulo{
+  font-size: 30px;
+  font-weight: bold;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  text-align: center;
+  color: #919496;
+}
+
