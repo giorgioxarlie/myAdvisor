@@ -103,7 +103,7 @@ html, body {
   margin-left: 2%;
 }
 
-.btn {
+.btn-large {
   background-color: white;
   color: black;
   font-weight: bold;
@@ -112,14 +112,49 @@ html, body {
   text-transform: none;
 }
 
-.btn:hover{
+.btn-large:hover{
   background-color: white;
   box-shadow: none;
   color: #42A5F5; 
 }
 
+.btn{
+  background-color: #42A5F5;
+  color: white;
+  font-weight: bold;
+  box-shadow: 1px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  text-transform: none;
+  text-align: center;
+  border-radius: 30px;
+}
+
+.btn:hover{
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  box-shadow: 1px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  text-transform: none;
+  text-align: center;
+  border-color: 
+}
+
+.material-icons{
+  color: white;
+}
+
+.btn:hover .material-icons{
+  color: black;
+}
+
 .container{
   width:100%;
+}
+.container-profile{
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px;
 }
 
 .teal{
