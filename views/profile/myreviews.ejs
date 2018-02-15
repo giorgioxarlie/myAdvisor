@@ -1,45 +1,39 @@
-<title>
+<h1>
     <%= title %>
-</title>
-</head>
-
-<body>
-    <h1>
-        <%= title %>
-    </h1>
-    <p>Welcome to
-        <%= title %>
-    </p>
-    <% if(!user) { %>
-        <h1>To see your profile please Log In or Sign Up.</h1>
-        <ul>
-            <li>
-                <a href="/auth/login">Login</a>
-            </li>
-            <li>
-                <a href="/auth/signup">Signup</a>
-            </li>
-            <li>
-                <a href="/auth/facebook">Login con facebook</a>
-            </li>
-            <li>
-                <a href="/auth/google">Login con google</a>
-            </li>
-        </ul>
-        <% } else { %>
-            <h2><%= user.username %> reviews:</h2>
-            <p><%= user.myreviews %></p>
-            </br>
-            <a href="/map">Map</a>
-            <br>
-            <a href="/profile/<%= user._id %>/myreviews">My Reviews</a>
-            <br>
-            <a href="/profile/<%= user._id %>/edit">Edit Profile</a>
-            <br>
-            <a href="/profile?id=<%= user._id %>">Onlyme</a>
-            <br>
-            <a href="/auth/logout">Logout</a>
-            <% } %>
-</body>
-
-</html>
+</h1>
+<p>Welcome to
+    <%= title %>
+</p>
+<% if(!user) { %>
+    <h1>To see your profile please Log In or Sign Up.</h1>
+    <ul>
+        <li>
+            <a href="/auth/login">Login</a>
+        </li>
+        <li>
+            <a href="/auth/signup">Signup</a>
+        </li>
+        <li>
+            <a href="/auth/facebook">Login con facebook</a>
+        </li>
+        <li>
+            <a href="/auth/google">Login con google</a>
+        </li>
+    </ul>
+    <% } else { %>
+        <h2>
+            <%= user.username %> reviews:</h2>
+        <p>
+            <%= user.myreviews %>
+        </p>
+        </br>
+        <a href="/map">Map</a>
+        <br>
+        <a href="/profile/<%= user._id %>/myreviews">My Reviews</a>
+        <br>
+        <a href="/profile/<%= user._id %>/edit">Edit Profile</a>
+        <br>
+        <a href="/profile?id=<%= user._id %>">Onlyme</a>
+        <br>
+        <a href="/auth/logout">Logout</a>
+        <% } %>

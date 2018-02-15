@@ -1,9 +1,8 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
+p {
   color: #00B7FF;
 }
 
@@ -17,3 +16,92 @@ html, body {
   margin: 0;
   padding: 20;
 }
+
+.charlie-effect{
+  background-color: #00B7FF;
+  font: white; 
+}
+
+.material-icons{
+  color: black;
+}
+
+.nav-wrapper{
+  margin-top: 4px;
+}
+
+.brand-logo{
+  margin-top: 0.5%;
+  margin-left: 2%;
+}
+
+.btn {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  box-shadow: none;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  text-transform: none;
+}
+
+.btn:hover{
+  background-color: white;
+  box-shadow: none;
+  color: #42A5F5; 
+}
+
+.container{
+  width:100%;
+}
+
+.teal{
+  background-color: rgba(51,51,51,0.03) !important;
+  padding: none;
+}
+
+.footer-logo{
+  margin-left: 10%;
+  margin-top: 10%;
+}
+.footer-caption{
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.social{
+  margin-right: 1%;
+}
+
+.dev-profile{
+  color: #919496;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.dev-profile:hover{
+  background-color: none;
+  box-shadow: none;
+  color: #42A5F5; 
+}
+
+.lower-bar{
+  text-align: center;
+  color: black;
+  font-size: 11px;
+  font-weight: bold;
+  box-shadow: none;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  text-transform: none;
+}
+
+.footer-copyright{
+  background-color: rgba(51,51,51,0.02) !important;
+  width: 100%;
+}
+
+.container{
+  max-width: 1406px;
+}
+

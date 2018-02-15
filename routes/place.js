@@ -90,7 +90,7 @@ router.get("/review/:id", (req, res) => {
           { $push: { reviews: rev._id } },
           { new: true }
         ).then(PlaceUpdate => {
-          res.redirect(`/profile/${userId}/myreviews/${rev._id}`);
+          res.redirect(`/detail/${placeId}`);
         });
       });
     });
