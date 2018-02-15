@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <%- body -%>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/css/materialize.min.css">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/js/materialize.min.js"></script>
+</head>
+<script src="javascript/materialize.js"></script>
+<% if(user) { %>
+  <nav class="white" role="navigation"></nav>
+<% } else { %>
+  <nav class="white" role="navigation"></nav>
+<% } %>
+<%- body -%>
+
 </html>
