@@ -8,13 +8,13 @@ const places = [
         name: 'Ironhack',
         escription:'esta es un description',
         location:{lat:40.392580, lng:-3.698305},
-        imageURL:"../uploads/f0e4152b0a079b70a224a9590b2b48f0"
+        imageURL:"../uploads/0f1de7b6ab2b9952bc5b3308b494cc41"
     },
     {
         name: 'Casa del lettore',
         description:'esta es un description',
         location:{lat:40.392753, lng:-3.698594},
-        imageURL:"../uploads/f0e4152b0a079b70a224a9590b2b48f0"
+        imageURL:"../uploads/bbebf693916454ebd3f608b2a3339d4c"
     },{
         name: "McDonald's Atocha",
         location:{lat:40.409709, lng:-3.692514},

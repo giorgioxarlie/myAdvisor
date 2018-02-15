@@ -1,11 +1,12 @@
+<div class="row" style="margin: 50px">
 <form action="/comment/<%=place%>" method="post">
     <div style="float:right">
-    <img src="<%= place.imageURL%>">
+      <img src="<%= place.imageURL%>" style="width:700px; padding:50px">
     </div>
     <div style="width: 250px">
     <label>Proprieta1</label>
     <p class="range-field">
-      <input type="range" id="poprieta" name="proprieta" min="0" max="5" value="1"/>
+      <input type="range" id="poprieta" name="proprieta" min="0" max="5" />
     </p>
     <br>
     <label>Proprieta2</label>
@@ -37,5 +38,6 @@
             <label for="textarea1">Comment</label>
           </div>
     </div>
-    <button type="submit">Comment</button>
+    <button class="btn" type="submit">Comment</button>
 </form>
+</div>
