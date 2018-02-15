@@ -3,11 +3,23 @@ const router = express.Router();
 const isLoggedIn = require("../middlewares/isLoggedIn");
 const onlyMe = require("../middlewares/onlyMe");
 const User = require("../models/User");
+const Review = require("../models/Review");
 const multer = require("multer");
 const upload = multer({ dest: "./public/uploads/" });
 
 router.get("/", function(req, res, next) {
   res.render("profile/show");
+});
+
+router.get("/:id/myreviews", (req, res, next) => {
+  const owner = req.params.id;
+  console.log(owner)
+  Review.findById(owner)
+    .exec()
+    .then(owner => {
+      res.render("profile/myreviews", { owner });
+    })
+    .catch(e => next(e));
 });
 
 router.get("/:id/edit", (req, res, next) => {

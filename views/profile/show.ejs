@@ -1,7 +1,7 @@
 <title><%= title %></title>
 </head>
 <body>
-  <h1><%= title %></h1>
+  <h1><%= title %> </h1>
   <p>Welcome to <%= title %></p>
   <% if(!user) { %>
     <h1>To see your profile please Log In or Sign Up.</h1>
@@ -17,6 +17,8 @@
     <h3>Your email is <%= user.email %></h3>
   </br>
     <a href="/map">Map</a>
+    <br>
+    <a href="/profile/<%= user._id %>/myreviews">My Reviews</a>
     <br>
     <a href="/profile/<%= user._id %>/edit">Edit Profile</a>
     <br>
