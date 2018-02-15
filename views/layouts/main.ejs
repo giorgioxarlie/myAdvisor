@@ -1,7 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/css/materialize.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/js/materialize.min.js"></script>
   </head>
+  <% if(user) { %>
+      <nav class="white" role="navigation">
+        <div class="nav-wrapper container">
+          <a id="logo-container" href="/" class="brand-logo teal-text"><img style="width:75px; margin-top:7px;" src="/images/logo.png" alt="myAdvisor"></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a class="waves-effect waves-light btn" href="/auth/logout">Salir</a></li>
+          </ul>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="/user/profile">Mi perfil</a></li>
+          </ul>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="/">Inicio</a></li>
+          </ul>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="/campaign">Ver Campañas</a></li>
+          </ul>
+          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="side-nav">
+            <li><a href="/campaign">Campañas<i class="material-icons">event_available</i></a></li>
+            <li><a href="/">Inicio<i class="material-icons">home</i></a></li>
+            <li><a href="/user/profile">Perfil<i class="material-icons">person</i></a></li>
+            <li><a class="waves-effect waves-light btn" href="/auth/logout">Salir</a></li>
+          </ul>
+        </div>
+      </nav>
+  <% } else { %>
+      <nav class="white" role="navigation">
+        <p>fuori</p>
+      </nav>
+<% } %>
   <%- body -%>
+  <script src="javascript/materialize.js"></script>
 </html>

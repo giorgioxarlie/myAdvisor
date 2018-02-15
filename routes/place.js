@@ -41,7 +41,8 @@ router.get('/detail/:id', (req,res) => {
   })
 
 
-  router.post('/comment/:id',(req, res,next)=>{
+  router.post("/comment/:id", (req, res, next) => {
+    var rev;
     const userId = req.user._id;
     //let userId = req.params.id;
     let placeId = req.params.id;
@@ -52,24 +53,36 @@ router.get('/detail/:id', (req,res) => {
     let prop4 = req.body.proprieta3;
     let prop5 = req.body.proprieta4;
     let prop6 = req.body.proprieta5;
-    let c = new Review({place:placeId, owner:userId,comment: comment,prop1,prop2,prop3,prop4,prop5,prop6});
-    c.save(err=>{
-        if(err){return next(err)};
-        console.log(`Added ${comment} and ${prop1} to ${placeId}`);
-        res.redirect(`/detail/${placeId}`);
-    })
-    .then((newrev)=>{
-      console.log(newrev._id)
-      console.log(reviewId)
+    let c = new Review({
+      place: placeId,
+      owner: userId,
+      comment: comment,
+      prop1,
+      prop2,
+      prop3,
+      prop4,
+      prop5,
+      prop6
+    });
+    c.save((err, newrev) => {
+      if (err) {
+        return next(err);
+      }
+      rev = newrev;
       User.findByIdAndUpdate(
-        {_id: reviewId},
-        { $push: { myreviews: newrev._id}},
-        { new: true})
-        .then((myreviewsUpdated) => {
-          console.log(myreviewsUpdated)
-          res.redirect(`/profile/:id/myreviews/${reviewId}`)
-        })
-    })
-  })
+        { _id: userId },
+        { $push: { myreviews: newrev._id } },
+        { new: true }
+      ).then(myreviewsUpdated => {
+        Places.findByIdAndUpdate(
+          { _id: placeId },
+          { $push: { reviews: rev._id } },
+          { new: true }
+        ).then(PlaceUpdate => {
+          res.redirect(`/profile/${userId}/myreviews/${rev._id}`);
+        });
+      });
+    });
+  });
 
 module.exports = router;
