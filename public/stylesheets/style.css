@@ -173,3 +173,16 @@ html, body {
   max-width: 1406px;
 }
 
+.add-form{
+  width: 50%;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.inline{
+  display: inline-block;
+}
+
+.no-margin{
+  margin-left:8%;
+}

@@ -1,12 +1,22 @@
 <ul>
     <% places.forEach((place) => { %>
-        <li>
-        <img src="<%= place.imageURL%>" width="50">
-        <%= place.name %>
-        <a href="/detail/<%= place._id %>">View Details</a>
-        <a href="/detail/<%= place._id %>/edit">Edit Place</a>
-        <a href="/delete/<%= place._id %>">Delete Place</a>
-        <a href="/review/<%= place._id %>">Make a review</a>
+        <div class="row  inline no-margin" style="width:40%">
+    <div class="col s12 m6" style="width:500px;">
+        <div class="card hoverable">
+            <div class="card-content">
+            <li>
+        <img src="<%= place.imageURL%>" width="100%">
+        <h5><%= place.name %></h5>
+        </br>
+        <a class="inline" href="/detail/<%= place._id %>">View Details</a>
+        <!--<a class="inline" href="/detail/<%= place._id %>/edit">Edit Place</a>
+        <a class="inline" href="/delete/<%= place._id %>">Delete Place</a>-->
+        <a class="inline" href="/review/<%= place._id %>">Make a review</a>
         </li>
-    <%  }) %>
+            </div>
+        </div>
+    </div>
+</div>
+<%  }) %>
 </ul>
+

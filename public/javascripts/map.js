@@ -6,7 +6,42 @@ var map;
           center: position,
           zoom: 5
         });
-          // places.forEach(p =>{
+        }
+
+      function createWindow(lat,lng,name,imageURL,id){
+        var infowindow = new google.maps.InfoWindow({
+            content: `${name}<br><img src='${imageURL}'><br><a href="detail/${id}">${name}</a>`,
+        });
+        var marker= new google.maps.Marker({
+            position: {lat,lng},
+            map: map,
+            title: name,
+        });
+          marker.addListener('click', function () {
+            infowindow.open(map, marker);
+        });
+      }
+
+
+      // Geolocaliza al usuario y luego llama a success_fn con la posicion que has obtenido
+    getPosition().then((loc) => {
+        let lat = loc.lat
+        let lng = loc.lng
+        let position = {lat,lng}
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: position,
+          zoom: 14
+        });
+        var marker= new google.maps.Marker({
+          position: {lat,lng},
+          map: map,
+          title: name,
+          icon:'https://www.localguidesconnect.com/t5/General-Discussion/Need-Help-About-Google-Map-Blue-Dot/td-p/581743'
+      });
+      places.forEach(p =>{
+      createWindow(p.location.lat,p.location.lng,p.name,p.imageURL,p._id);
+    });
+     // places.forEach(p =>{
           //     console.log(p)
           //   createWindow(p.location.lat,p.location.lng,p.name,p.imageURL,p._id);
           // });
@@ -85,41 +120,6 @@ var map;
               //   console.log('Checkbox clicked! New state=' + this.checked);
               //   autocomplete.setOptions({strictBounds: this.checked});
               // });
-        }
-
-      function createWindow(lat,lng,name,imageURL,id){
-        var infowindow = new google.maps.InfoWindow({
-            content: `${name}<br><img src='${imageURL}'><br><a href="detail/${id}">${name}</a>`,
-        });
-        var marker= new google.maps.Marker({
-            position: {lat,lng},
-            map: map,
-            title: name,
-        });
-          marker.addListener('click', function () {
-            infowindow.open(map, marker);
-        });
-      }
-
-
-      // Geolocaliza al usuario y luego llama a success_fn con la posicion que has obtenido
-    getPosition().then((loc) => {
-        let lat = loc.lat
-        let lng = loc.lng
-        let position = {lat,lng}
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: position,
-          zoom: 14
-        });
-        var marker= new google.maps.Marker({
-          position: {lat,lng},
-          map: map,
-          title: name,
-          icon:'https://www.localguidesconnect.com/t5/General-Discussion/Need-Help-About-Google-Map-Blue-Dot/td-p/581743'
-      });
-      places.forEach(p =>{
-      createWindow(p.location.lat,p.location.lng,p.name,p.imageURL,p._id);
-    });
     });
 
 
@@ -130,7 +130,7 @@ function getPosition() {
             const fail_fn = function () {
                 console.log('Error in the geolocation service.');
             }
-            console.log("Geolocalizing.....")
+            console.log("Geolocalizing")
             navigator.geolocation.getCurrentPosition(position => {
                 const user_location = {
                     lat: position.coords.latitude,
