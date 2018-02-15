@@ -13,6 +13,5 @@ router.get('/add-star/:id/:number', (req, res) => {
       res.redirect(`/detail/${id}`);
     })
 });
-  
 
 module.exports = router;
