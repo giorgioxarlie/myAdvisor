@@ -6,7 +6,7 @@ const placeSchema = new Schema({
     imageURL: { type: String, default: "https://placeholdit.imgix.net/~text?txtsize=50&txt=Ironfunding&w=100&h=100" },
     description: String,
     location: {lng:Number,lat:Number},
-    ratings:[]
+    reviews: [{type: Schema.ObjectId, ref: 'Review'}]
   }, {
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
   });
