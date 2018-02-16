@@ -6,7 +6,7 @@ const userSchema = new Schema({
     email: String,
     password: String,
     imgURL: {type:String, default: "https://placeholdit.imgix.net/~text?txtsize=50&txt=Ironfunding&w=100&h=100" },
-    myreviews: [{type: Schema.ObjectId, ref: 'Review'}],
+    myreviews: [{type: Schema.Types.ObjectId,ref: 'Review'}],
     facebookID: String,
     googleID:String
 }, {

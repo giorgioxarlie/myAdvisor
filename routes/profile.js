@@ -14,12 +14,19 @@ router.get("/", function(req, res, next) {
 router.get("/:id/myreviews", (req, res, next) => {
   const owner = req.params.id;
   console.log(owner)
-  Review.findById(owner)
-    .exec()
-    .then(owner => {
-      res.render("profile/myreviews", { owner });
-    })
-    .catch(e => next(e));
+  // Review.findById(owner)
+  //   .exec()
+  //   .then(owner => {
+  //     res.render("profile/myreviews", { owner });
+  //   })
+  //   .catch(e => next(e));
+  User.findById(owner)
+  .populate("myreviews")
+  .then( user => {
+     console.log("JESU", user)
+    res.render("profile/myreviews", { owner: user });
+  })
+  .catch(e => next(e));
 });
 
 router.get("/:id/edit", (req, res, next) => {
