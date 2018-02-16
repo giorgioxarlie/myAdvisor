@@ -79,6 +79,9 @@ var map;
             // If the place has a geometry, then present it on a map.
             if (place.geometry.viewport) {
               map.fitBounds(place.geometry.viewport);
+              console.log(place.geometry.location.lat);
+              document.getElementById('lat').value = place.geometry.location.lat();
+              document.getElementById('lng').value = place.geometry.location.lng();
             } else {
               map.setCenter(place.geometry.location);
               map.setZoom(17);  // Why 17? Because it looks good.
@@ -95,7 +98,7 @@ var map;
               ].join(' ');
             }
         
-            infowindowContent.children['place-icon'].src = place.icon;
+            //infowindowContent.children['place-icon'].src = place.icon;
             infowindowContent.children['place-name'].textContent = place.name;
             infowindowContent.children['place-address'].textContent = address;
             infowindow.open(map, marker);

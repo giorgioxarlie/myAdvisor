@@ -1,22 +1,24 @@
 
     <div class="col s4 inline" style="margin-left:50px; margin-right:0px; width:50%">
             <h1><%= place.name %></h1>
-            <img src="<%= place.imageURL%>" style="width:500px">
-    </div>
-    <div class="col s4 inline" style="margin:50px; align:right; width:50%">
+            <img src="<%= place.imageURL%>" style="width:100%">
+            <div class="col s4 inline" style="margin:50px; align:right; width:50%">
          <p><%= place.description %></p>
         <h1> Place avarage: <%= stars %> </h1>
     </div>
+    </div>
     
-    <div class="col s4">
+    
+    <div class="col s4 inline">
     <% comment.reverse().forEach((c)=>{ %>
     <div style="border:1px solid #000; margin:5px">
-            <div style="align:left">
+            <div>
                     <p><%= c.comment %></p>
                 <br>
                     <a href="/profile?id=<%= c.owner %>">Raters Profile</a>
                 </div>
-                <div style="align:right">
+                <div>
+                    <div class="inline">
                     <p class="range-field">
                     <input type="range" id="poprieta" name="proprieta" min="0" max="5" value="<%=c.prop%>"/>
                     </p>
@@ -29,7 +31,10 @@
                     <label>Proprieta3</label>
                     <p class="range-field">
                     <input type="range" id="poprieta2" name="proprieta2" min="0" max="<%=c.prop2%>" />
-                    </p>    <br>
+                    </p> 
+                    </div>
+                    <br>
+                    <div class="inline" style="float:right"> 
                     <label>Proprieta4</label>
                     <p class="range-field">
                     <input type="range" id="poprieta3" name="proprieta3" min="0" max="<%=c.prop3%>" />
@@ -42,6 +47,7 @@
                     <p class="range-field">
                     <input type="range" id="poprieta5" name="proprieta5" min="0" max="<%=c.prop5%>" />
                     </p>
+                    </div>
             </div>
         </div>
         <% })%>

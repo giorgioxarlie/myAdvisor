@@ -217,6 +217,10 @@ html, body {
   display: inline-block;
 }
 
+.left{
+  float: left;
+}
+
 .no-margin{
   margin-left:8%;
 }

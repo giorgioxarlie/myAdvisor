@@ -12,12 +12,11 @@ router.get("/", function(req, res, next) {
 });
 
 router.get("/:id/myreviews", (req, res, next) => {
-  const owner = req.params.id;
-  console.log(owner)
-  Review.findById(owner)
+  const ownerid = req.params.id;
+  Review.find({ "owner": ownerid })
     .exec()
-    .then(owner => {
-      res.render("profile/myreviews", { owner });
+    .then(reviews => {
+      res.render("profile/myreviews", { reviews });
     })
     .catch(e => next(e));
 });
