@@ -25,7 +25,7 @@ router.post('/map',upload.single('image'),(req,res,next)=>{
       newPos.save()
         .then(() => {
           console.log(`Se ha creado la posición ${lat} ${lng}`);
-          res.redirect("/")
+          res.redirect("/map")
         })
         .catch(e => next(e))
 })
