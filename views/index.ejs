@@ -1,21 +1,60 @@
-    <h1>myAdvisor</h1>
+  <div class="img1"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text teal-text">
+            <i class="teal-text material-icons" id="iconoscentro">location_searching</i>
+            <h5 class="center">Find</h5>
+            <p class="light" id="textocentro">Ever need a nice and clean toilet ASAP? Find every single toilet near you and view it with our interactive map.</p>
+          </h2>
+        </div>
+      </div>
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text teal-text">
+            <i class="teal-text material-icons" id="iconoscentro">rate_review</i>
+            <h5 class="center">Rate</h5>
+            <p class="light" id="textocentro">Love your university´s toilet? Hate a bar´s toilet? Rate it in Loogle so that everyone benefits from your experiences
+              at that toilet.</p>
+          </h2>
+        </div>
+      </div>
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text teal-text">
+            <i class="teal-text material-icons" id="iconoscentro">add_circle</i>
+            <h5 class="center">Add</h5>
+            <p class="light" id="textocentro">Seen a bathroom that is not on Loogle yet? Add it so that everyone else can find it in Loogle´s map. Sharing
+              is caring!!
+            </p>
+          </h2>
+        </div>
+      </div>
+    </div>
+  <div class="row">
     <% if(!user) { %>
-      <ul>
-        <li><a href="/auth/login">Login</a></li>
-        <li><a href="/auth/signup">Signup</a></li>
-        <li><a href="/auth/facebook">Login con facebook</a></li>
-        <li><a href="/auth/google">Login con google</a></li>
-      </ul>
-    <% } else { %>
-      <h2>Hola <%= user.username %></h2>
-      <img src="/images/descarga.jpeg" alt=""/>
-    </br>
-      <a href="/map">Map</a>
-      <a href="/profile?id=<%= user._id %>">Onlyme</a>
-      <a href="/auth/logout">Logout</a>
-      <a href="/index">Place</a>
-      <a href="/index"></a>
-    <% } %>
-  </body>
-  
-
+      <div class="col s12 center">
+        <ul class="inline">
+          <li>
+            <a class="btn" href="/auth/login">Login</a>
+          </li>
+          <li>
+            <a class="btn" href="/auth/signup">Signup</a>
+          </li>
+        </ul>
+      </div>
+      <% } else { %>
+        <h2>Hola
+          <%= user.username %>
+        </h2>
+        <img src="/images/descarga.jpeg" alt="" />
+        </br>
+        <a class="btn" href="/map">Map</a>
+        <a class="btn" href="/profile?id=<%= user._id %>">Onlyme</a>
+        <a class="btn" href="/auth/logout">Logout</a>
+        <a class="btn" href="/index">Place</a>
+        <a class="btn" href="/index"></a>
+        <% } %>
+  </div>
+</div>
