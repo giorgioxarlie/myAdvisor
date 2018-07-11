@@ -1,42 +1,44 @@
-const express = require('express');
-const path = require('path');
-const favicon = require('serve-favicon');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const expressLayouts = require('express-ejs-layouts');
-const mongoose = require('mongoose');
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
+const express = require("express");
+const path = require("path");
+const favicon = require("serve-favicon");
+const logger = require("morgan");
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
+const expressLayouts = require("express-ejs-layouts");
+const mongoose = require("mongoose");
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 const passportConfig = require("./passport");
-const debug = require('debug')('myAdvisor:app');
-const flash = require('connect-flash');
-const {dbURL} = require('./config');
+const debug = require("debug")("myAdvisor:app");
+const flash = require("connect-flash");
+const { dbURL } = require("./config");
 
-const index = require('./routes/index');
-const map = require('./routes/map');
-const auth = require('./routes/auth');
+const index = require("./routes/index");
+const map = require("./routes/map");
+const auth = require("./routes/auth");
 const profile = require("./routes/profile");
-const place = require('./routes/place');
-const comment = require('./routes/comment');
+const place = require("./routes/place");
+const comment = require("./routes/comment");
 
 const app = express();
 
 // Promessa per connessione al database
-mongoose.connect(dbURL)
-.then(()=> {
-  debug(`Connected to db ${dbURL}`)
-})
-.catch(e => console.log(e)) 
+mongoose
+  .connect(dbURL)
+  .then(() => {
+    debug(`Connected to db ${dbURL}`);
+  })
+  .catch(e => console.log(e));
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-app.set('layout', 'layouts/main');
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+app.set("layout", "layouts/main");
 app.use(expressLayouts);
 
 app.use(logger("dev"));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(favicon(path.join(__dirname, "public", "images", "logoloogle.png")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -59,12 +61,12 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/', index);
+app.use("/", index);
 app.use("/auth", auth);
 app.use("/profile", profile);
-app.use('/', map);
-app.use('/', place);
-app.use('/', comment);
+app.use("/", map);
+app.use("/", place);
+app.use("/", comment);
 
 // Access POST params with body parser
 app.use(bodyParser.json());

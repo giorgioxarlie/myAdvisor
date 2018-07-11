@@ -19,6 +19,7 @@ router.get("/detail/:id", (req, res) => {
       return next(err);
     }
     Review.find({ place: placeId }, (err, reviews) => {
+      if(err)console.log(err);
       let num_stars = (
         reviews.reduce(
           (acc, e) =>
