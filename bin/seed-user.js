@@ -16,9 +16,7 @@ User.collection.drop();
 users.forEach(p =>{
     let pr = new User(p);
     pr.save((err,usr)=>{
-        if(err){
-            throw err;
-        }
+        if(err)throw err;
         console.log(`Utente guardado ${usr.username}`);
     })
 })

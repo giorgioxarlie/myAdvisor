@@ -58,12 +58,7 @@ router.post('/comment/:id',(req, res,next)=>{
   let userId = req.user.id;
   let placeId = req.params.id;
   let comment = req.body.comment;
-  let prop1 = req.body.proprieta;
-  let prop2 = req.body.proprieta1;
-  let prop3 = req.body.proprieta2;
-  let prop4 = req.body.proprieta3;
-  let prop5 = req.body.proprieta4;
-  let prop6 = req.body.proprieta5;
+  let [prop1,prop2,prop3,prop4,prop5,prop6] = [req.body.proprieta,req.body.proprieta1,req.body.proprieta2,req.body.proprieta3,req.body.proprieta4,req.body.proprieta5];
   let c = new Review({place:placeId, owner:userId,comment: comment,prop1,prop2,prop3,prop4,prop5,prop6});
   c.save(err=>{
       if(err){return next(err)};

@@ -24,6 +24,9 @@ const places = [
     },{
         name:'Chino',
         location:{lat:40.392171, lng:-3.695102}
+    },{
+        name:'Baño enbajada italiana',
+        location:{lat:40.432324, lng:-3.683955}
     }
 ]
 

@@ -26,7 +26,7 @@ const app = express();
 mongoose
   .connect(dbURL)
   .then(() => {
-    debug(`Connected to db ${dbURL}`);
+    console.log(`Connected to db ${dbURL}`);
   })
   .catch(e => console.log(e));
 

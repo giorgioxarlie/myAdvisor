@@ -5,8 +5,8 @@ mongoose.connect(dbURL).then(() => console.log("Conectado!"));
 
 const reviews = [
     {
-        place :'5a85c2cdf890329b228ebf7e',
-        owner: "5a8487b48bb51caeca99f74a",
+        place :'5b47662111366f592dd58e72',
+        owner: '5b47663a2bfcde59759e09c5',
         prop1: 3,
         prop2: 4,
         prop3: 3,
@@ -17,8 +17,8 @@ const reviews = [
         comment: "Muy BUEN baño."
     },
     {
-        place : '5a85c2cdf890329b228ebf7e',
-        owner: '5a8487b48bb51caeca99f74a',
+        place : '5b47662111366f592dd58e71',
+        owner: '5b47663a2bfcde59759e09c5',
         prop1: 3,
         prop2: 4,
         prop3: 3,
