@@ -38,6 +38,7 @@ var map;
           title: name,
           icon:'https://www.localguidesconnect.com/t5/General-Discussion/Need-Help-About-Google-Map-Blue-Dot/td-p/581743'
       });
+      console.log(places);
       places.forEach(p =>{
       createWindow(p.location.lat,p.location.lng,p.name,p.imageURL,p._id);
     });
