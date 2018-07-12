@@ -7,7 +7,7 @@
       <li><a href="/auth/google">Login con google</a></li>
     </ul>
   <% } else { %>
-  <div class="container-profile">
+  <div class="container-profile card">
     <div class="row"></div>
     <div class="row">
         <div class="col s4"></div>
@@ -24,14 +24,12 @@
         <div class="col s4"></div>
     </div>
     <div class="row">
-        <div class="col s4"></div>
-        <div class="col s2">
+        <div class="col s6">
           <a class="btn waves-effect waves-light" href="/profile/<%= user._id %>/myreviews">My Reviews<i class="material-icons right">rate_review</i></a>
         </div>
-        <div class="col s2">
+        <div class="col s6">
           <a class="btn waves-effect waves-light" href="/profile/<%= user._id %>/edit">Edit Profile<i class="material-icons right">edit</i></a>
-        </div>
-        <div class="col s4"></div>
+        </div>  
     </div>
   </div>
   <% } %>

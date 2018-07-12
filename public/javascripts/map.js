@@ -10,7 +10,7 @@ var map;
 
       function createWindow(lat,lng,name,imageURL,id){
         var infowindow = new google.maps.InfoWindow({
-            content: `<h1>${name}</h1><br><br><a href="detail/${id}"><img src='${imageURL}' style="width:400px"></a>`,
+            content: `<h1>${name}</h1><br><br><a href="detail/${id}"><img src='${imageURL}' style="width:400px;border-radius:10%"></a>`,
         });
         var marker= new google.maps.Marker({
             position: {lat,lng},

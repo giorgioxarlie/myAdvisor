@@ -2,9 +2,6 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-p {
-  color: #00b7ff;
-}
 
 #map {
   height: 100%;
@@ -276,10 +273,14 @@ body {
   background-image: url("/images/main.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
-  height: 50vh;
+  height: 45vh;
   width: 100vw;
 }
 
 #iconoscentro {
   font-size: 60px !important;
+}
+
+img{
+  border-radius: 5px;
 }

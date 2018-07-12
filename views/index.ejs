@@ -36,6 +36,7 @@
   <div class="row">
     <% if(!user) { %>
       <div class="col s12 center">
+      <h4 class="teal-text">New to Loogle?</h4>
         <ul class="inline">
           <li>
             <a class="btn" href="/auth/login">Login</a>
@@ -46,16 +47,7 @@
         </ul>
       </div>
       <% } else { %>
-        <h2>Hola
-          <%= user.username %>
-        </h2>
-        <img src="/images/descarga.jpeg" alt="" />
-        </br>
-        <a class="btn" href="/map">Map</a>
-        <a class="btn" href="/profile?id=<%= user._id %>">Onlyme</a>
-        <a class="btn" href="/auth/logout">Logout</a>
-        <a class="btn" href="/index">Place</a>
-        <a class="btn" href="/index"></a>
+
         <% } %>
   </div>
 </div>
