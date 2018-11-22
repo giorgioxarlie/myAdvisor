@@ -1,4 +1,6 @@
 const express = require('express');
+require('dotenv').config();
+
 
 const router = express.Router();
 const multer = require('multer');
@@ -8,7 +10,7 @@ const upload = multer({ dest:'./public/uploads/' });
 
 router.get('/map', (req, res) => {
   Places.find().exec((err, places) => {
-    res.render('map', { places });
+    res.render('map', { places, API_MAP:process.env.API_MAP });
   });
 });
 
