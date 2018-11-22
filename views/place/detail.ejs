@@ -1,16 +1,17 @@
 <div class="container">
-    <div class="row">
+    <div style="margin-top:5rem" class="row">
         <div class="col s6">
-            <h1>
-                <%= place.name %>
-            </h1>
             <img src="<%= place.imageURL%>" style="width:100%">
         </div>
         <div class="col s6">
 
-            <h1> Place avarage:
-                <%= stars %>
+            <h1>
+                Name: <%= place.name %>
             </h1>
+
+            <h3> Place avarage:
+                <%= stars %>
+            </h3>
         </div>
 
     </div>
@@ -20,7 +21,7 @@
 <div class="container">
     <div class="row" style="margin:50px">
         <% comment.reverse().forEach((c)=>{ %>
-            <div class="col s6 card">
+            <div style="width:80vw !important" class="card">
                 <div>
                     <p>Comment:</p>
                     <p>

@@ -1,5 +1,6 @@
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@font-face {
+  font-family: AvenirNext;
+  src: url('../assets/fonts/AvenirNext-Regular.ttf');
 }
 
 
@@ -283,4 +284,26 @@ body {
 
 img{
   border-radius: 5px;
+}
+
+.add-toilet {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.profile-button {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-button-padding {
+  margin: 1rem;
+}
+
+.container-profile {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
 }

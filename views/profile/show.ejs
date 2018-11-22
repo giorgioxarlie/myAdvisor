@@ -1,35 +1,35 @@
 <% if(!user) { %>
-    <h1>To see your profile please Log In or Sign Up.</h1>
-    <ul>
-      <li><a href="/auth/login">Login</a></li>
-      <li><a href="/auth/signup">Signup</a></li>
-      <li><a href="/auth/facebook">Login con facebook</a></li>
-      <li><a href="/auth/google">Login con google</a></li>
-    </ul>
+    <div class="container card">
+      <img style="object-fit:cover; height:10vh" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Nuvola_apps_error.svg/2000px-Nuvola_apps_error.svg.png" alt="error">
+      <h3>To see your profile please Log In or Sign Up.</h3>
+      <ul>
+        <li><a href="/auth/login">Login</a></li>
+        <li><a href="/auth/signup">Signup</a></li>
+        <li><a href="/auth/facebook">Login con facebook</a></li>
+        <li><a href="/auth/google">Login con google</a></li>
+      </ul>
+    </div>
   <% } else { %>
   <div class="container-profile card">
     <div class="row"></div>
     <div class="row">
-        <div class="col s4"></div>
         <div class="col s4">
           <div class="profilepic"><img src="../<%=user.imgURL%>" alt="Profile Picture Goes Here" style="width:400px; border-radius:10px;margin:0 auto;"/></div>
         </div>
         <div class="col s12"></div>
       </div>
     <div class="row">
-        <div class="col s4"></div>
         <div class="col s4">
       <h3>@<%= user.username %></h3>
         </div>
-        <div class="col s4"></div>
     </div>
-    <div class="row">
-        <div class="col s6">
-          <a class="btn waves-effect waves-light" href="/profile/<%= user._id %>/myreviews">My Reviews<i class="material-icons right">rate_review</i></a>
-        </div>
-        <div class="col s6">
-          <a class="btn waves-effect waves-light" href="/profile/<%= user._id %>/edit">Edit Profile<i class="material-icons right">edit</i></a>
-        </div>  
+    <div class="row profile-button">
+          <div class="col s6 profile-button-padding">
+            <a class="btn waves-effect waves-light" href="/profile/<%= user._id %>/myreviews">My Reviews<i class="material-icons right">rate_review</i></a>
+          </div>
+          <div class="col s6 profile-button-padding">
+            <a class="btn waves-effect waves-light" href="/profile/<%= user._id %>/edit">Edit Profile<i class="material-icons right">edit</i></a>
+          </div>  
     </div>
   </div>
   <% } %>
